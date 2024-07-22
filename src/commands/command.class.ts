@@ -16,4 +16,8 @@ export const menuCommands: BotCommand[] = [
     command: "/info",
     description: "About the Grammy Bot text formatting ✨",
   },
+  {
+    command: "/connect",
+    description: "Connect wallet  🤑",
+  },
 ];

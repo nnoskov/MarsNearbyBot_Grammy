@@ -1,6 +1,8 @@
 import { Bot, InlineKeyboard } from "grammy";
 import { Command } from "./command.class";
 import { IBotContext } from "../context/context.interface";
+import { beginCell, toNano } from "ton-core";
+import qs from "qs";
 
 export class StartCommand extends Command {
   constructor(bot: Bot<IBotContext>) {
@@ -23,9 +25,22 @@ export class StartCommand extends Command {
         reply_markup: inlineKeyboard,
       });
     });
+
     this.bot.callbackQuery(["donate"], async (ctx) => {
       await ctx.answerCallbackQuery(); //To hide the long waiting
-      await ctx.reply("Donate or about is selected");
+      const msg_body = beginCell().storeUint(2, 32).endCell();
+      const link = `https://app.tonkeeper.com/transfer/${
+        process.env.SC_ADDRESS
+      }?${qs.stringify({
+        text: "Donate by 0.01 TON",
+        amount: toNano("0.01").toString(10),
+        bin: msg_body.toBoc({ idx: false }).toString("base64"),
+      })}`;
+      await ctx.reply("To donation me 0.01 TON, please sign a transaction:", {
+        reply_markup: {
+          inline_keyboard: [[{ text: "Sign transaction", url: link }]],
+        },
+      });
     });
     // this.bot.on("callback_query:data", async (ctx) => {
     //   await ctx.answerCallbackQuery();

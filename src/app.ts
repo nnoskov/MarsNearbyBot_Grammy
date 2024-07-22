@@ -5,6 +5,7 @@ import { IBotContext } from "./context/context.interface";
 import { Command, menuCommands } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import { InfoCommand } from "./commands/info.command";
+import { ConnectCommand } from "./commands/connect.command";
 
 class GrammyBot {
   bot: Bot<IBotContext>;
@@ -17,7 +18,11 @@ class GrammyBot {
   }
 
   init() {
-    this.commands = [new StartCommand(this.bot), new InfoCommand(this.bot)];
+    this.commands = [
+      new StartCommand(this.bot),
+      new InfoCommand(this.bot),
+      new ConnectCommand(this.bot),
+    ];
     for (const command of this.commands) {
       command.handle();
     }

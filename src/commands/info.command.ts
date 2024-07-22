@@ -15,14 +15,10 @@ export class InfoCommand extends Command {
           "./public/text/about.html",
           "utf8"
         );
-        console.log(descriptionText);
         const inlineKeyboard = new InlineKeyboard().webApp(
           "🤿  Dive more...",
           "https://marsnearby.fun"
         );
-        // const text = `Hi ${
-        //   ctx.message?.from.first_name ?? "User"
-        // }! This is ansfer on info the info command!`;
 
         await ctx.replyWithPhoto(
           new InputFile({
