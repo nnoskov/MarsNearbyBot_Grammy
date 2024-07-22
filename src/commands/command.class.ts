@@ -10,10 +10,10 @@ export abstract class Command {
 export const menuCommands: BotCommand[] = [
   {
     command: "/start",
-    description: "Running and Restart the Bot",
+    description: "Running and Restart the Grammy Bot 🏃",
   },
   {
     command: "/info",
-    description: "About the Bot",
+    description: "About the Grammy Bot text formatting ✨",
   },
 ];
