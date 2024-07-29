@@ -6,6 +6,9 @@ import { Command, menuCommands } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import { InfoCommand } from "./commands/info.command";
 import { ConnectCommand } from "./commands/connect.command";
+import { SendTxCommand } from "./commands/sendTx.command";
+import { DisconnectCommand } from "./commands/disconnect.command";
+import { ShowWallet } from "./commands/showWallet.command";
 
 class GrammyBot {
   bot: Bot<IBotContext>;
@@ -22,6 +25,9 @@ class GrammyBot {
       new StartCommand(this.bot),
       new InfoCommand(this.bot),
       new ConnectCommand(this.bot),
+      new SendTxCommand(this.bot),
+      new DisconnectCommand(this.bot),
+      new ShowWallet(this.bot),
     ];
     for (const command of this.commands) {
       command.handle();

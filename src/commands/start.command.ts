@@ -42,9 +42,5 @@ export class StartCommand extends Command {
         },
       });
     });
-    // this.bot.on("callback_query:data", async (ctx) => {
-    //   await ctx.answerCallbackQuery();
-    //   await ctx.reply(`${ctx.callbackQuery.data}`);
-    // });
   }
 }

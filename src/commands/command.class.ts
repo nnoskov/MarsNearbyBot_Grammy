@@ -20,4 +20,16 @@ export const menuCommands: BotCommand[] = [
     command: "/connect",
     description: "Connect wallet  🤑",
   },
+  {
+    command: "/send_tx",
+    description: "Send transaction",
+  },
+  {
+    command: "/disconnect",
+    description: "Disconnect wallet",
+  },
+  {
+    command: "/my_wallet",
+    description: "Show my wallet",
+  }
 ];
